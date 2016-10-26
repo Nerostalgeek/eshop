@@ -1,13 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+
+        {% block javascripts %}
+
+            <!-- JQuery -->
+            <script type="text/javascript" src="{{ asset('assets/vendor/jquery/dist/jquery.min.js') }}"></script>
+            <!-- Materialize JavaScript-->
+            <script type="text/javascript" src="{{ asset('assets/vendor/materialize/dist/js/materialize.js') }}"></script>
+        {% endblock %}
+
+        {% block stylesheets %}
+
+            <!-- Font Awesome -->
+            <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <!--Import materialize.css-->
+            <link rel="stylesheet" href="{{ asset('assets/vendor/materialize/dist/css/materialize.min.css') }}">
+            <!--Let browser know website is optimized for mobile-->
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+            {% endblock %}
+
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+
     </head>
+
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
+        {% block body %}
+            {% block javascript %}{% endblock %}
+
+
+            {% block navbar %} {% endblock %}
+        {% endblock %}
+        {% block stylesheet %}  {% endblock %}
+
+
     </body>
+
+{% block js %} {% endblock %}
 </html>
